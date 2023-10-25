@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #083068;
-  --secondary-color: #00cccc;
+  --primary-color: #140861;
+  --secondary-color: #8906E6;
   --dark-color: #222831;
   --white-color: #fafafa;
 }
@@ -55,10 +55,23 @@ h5,
 h6 {
   color: var(--primary-color);
 }
+
+.bungee-font{
+  font-family: 'Bungee Inline', sans-serif;
+}
 .resize-svg{
   height: 50px;
 }
 
+.odd{
+  font-weight: 100;
+  font-size: 100;
+}
+
+.even{
+  font-weight: bold;
+  font-size: 100;
+}
 .nav{
   z-index: 1;
   top:0;

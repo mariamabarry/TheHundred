@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
   <head>
-    <title>App Name: A Coding Project by Mariama Barry</title>
+    <title>The Hundred: A Coding Project by Mariama Barry</title>
     <link rel="icon" type="image/png" href="/img/logo/Favicons/Android.png" >
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -21,15 +21,18 @@
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
     <link href="/css/site.css" rel="stylesheet" />
     <link href="css/prism.css" rel="stylesheet">
-    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
   </head>
 
     <body class="d-flex flex-column h-100">
         <!-- ===== NAV SECTION ===== -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="/img/logo/Favicons/no-bg/Android-removebg-preview.png" class="d-inline-block" width="40" height="40">
-                APP NAME</a>
+                <a class="navbar-brand bungee-font" href="#"><img src="/img/logo/Favicons/no-bg/Android-removebg-preview.png" class="d-inline-block" width="40" height="40">
+                The Hundred</a>
                 <button
                 class="navbar-toggler"
                 type="button"
@@ -65,21 +68,89 @@
         <!-- ===== MAIN SECTION ===== -->
         <main class="flex-shrink-0">
             <div class="container py-5 px-4 mt-5">
-                <h2 class="border-1 border-bottom border-dark">The Code for APP NAME</h2>
+                <h2 class="border-1 border-bottom border-dark bungee-font">The Code for The Hundred</h2>
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col-lg-8">
                         <pre class="line-numbers">
                             <code class="language-javascript">
-                                function HelloWorld(){
-                                    alert("hello world!");
+                                /*CONTROLLER FUNCTION */
+                                //get the values from the Page
+                                function getValues(){
+                                    //get values from the page
+                                    let startValue = document.getElementById("startValue").value;
+                                    let endValue = document.getElementById("endValue").value;
+                                    startValue = parseInt(startValue);
+                                    endValue = parseInt(endValue);
+                                
+                                    //validate input
+                                    if(Number.isInteger(startValue) && Number.isInteger(endValue))
+                                    {
+                                        //call generateNumbers
+                                        let numbers = generateNumbers(startValue, endValue);
+                                        //call displayNumbers
+                                        displayNumbers(numbers); 
+                                    }
+                                    else
+                                        {
+                                            alert("You must enter integers.");
+                                        }
+                                }
+                                
+                                /*LOGIC FUNCTIONS*/
+                                //generate numbers from startValue to endValue
+                                function generateNumbers(start, end){
+                                    let values = [];
+                                    range = end - start;
+                                    for(let i=start; i <= end; i++){
+                                        values.push(i);
+                                    }
+                                    return values;
+                                }
+                                
+                                /* DISPLAY OR VIEW FUNCTIONS*/
+                                //display the numbers with the even numbers being bold
+                                function displayNumbers(nums){
+                                    let templateRows = "";
+                                    for(let i = 0; i < nums.length; i++)
+                                    {
+                                        let className = "";
+                                        let num = nums[i];
+                                        if (num % 2 == 0)
+                                        {
+                                            className = "even";
+                                        }
+                                        else
+                                        {
+                                            className = "odd";
+                                        }
+                                        //This does render correctly with Prisim. Please see source code for more info.
+                                        templateRows += `<tr><td class="${className}">${num}</td></tr>`;
+                                
+                                    }
+                                    document.getElementById("results").innerHTML = templateRows;
                                 }
                             </code>
                         </pre>
                     </div>
                     <div class="col-lg-4">
-                        <p>The code is structed in one functions.</p>
-                        <h5>Hello World</h5>
-                        <p>Hello World is a function that displays an alert with a message.</p>
+                        <p>The code is structured in three functions.</p>
+                        <h5>getValues</h5>
+                        <p>
+                            The getValues function extracts values from HTML input elements with the IDs "startValue" and "endValue." 
+                            It then converts these values into integers after checking that they are indeed integers. 
+                            If both input values are valid integers, it proceeds to call the generateNumbers function with the start and end values as arguments and 
+                            then calls the displayNumbers function to display the generated numbers. If either of the input values is not an integer, it displays an alert message, 
+                            prompting the user to enter integers. In summary, this function is responsible for retrieving, validating, and processing user-provided integer values to 
+                            generate and display a series of numbers within a given range.</p>
+                        <h5>generateNumbers</h5>
+                        <p>The generateNumbers function takes two integer values, start and end, and creates an array called values to store a sequence of numbers within the specified range. 
+                            It calculates the range by subtracting start from end. Then, it uses a for loop to iterate through the numbers from start to end (inclusive) and adds each of them to the values array using the push method. 
+                            Finally, it returns the array values containing the generated numbers. This function essentially generates an array of consecutive integers within the specified range.</p>
+                        <h5>displayNumbers</h5>
+                        <p>The "displayNumbers" function takes an array of numbers, "nums," and generates an HTML representation to display them. It loops through each number in the array and checks if it's even or odd. 
+                            If a number is even, it assigns the "even" class to the table cell, making it appear in bold. If it's odd, it assigns the "odd" class. The function then creates a table row for each number, embedding the number 
+                            itself within a table cell with the appropriate class. Finally, it sets the inner HTML of an element with the ID "results" to the generated table rows, effectively displaying the numbers with even numbers in bold 
+                            and odd numbers in a regular style.</p>
                     </div>
                 </div>
             </div>

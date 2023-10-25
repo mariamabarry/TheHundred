@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
   <head>
-    <title>App Name: A Coding Project by Mariama Barry</title>
+    <title>The Hundred: A Coding Project by Mariama Barry</title>
     <link rel="icon" type="image/png" href="/img/logo/Favicons/Android.png" >
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -19,15 +19,18 @@
     />
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
     <link href="/css/site.css" rel="stylesheet" />
-    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
   </head>
 
     <body class="d-flex flex-column h-100">
         <!-- ===== NAV SECTION ===== -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="/img/logo/Favicons/no-bg/Android-removebg-preview.png" class="d-inline-block" width="40" height="40">
-            APP NAME</a>
+            <a class="navbar-brand bungee-font" href="#"><img src="/img/logo/Favicons/no-bg/Android-removebg-preview.png" class="d-inline-block" width="40" height="40">
+            The Hundred</a>
             <button
             class="navbar-toggler"
             type="button"
@@ -62,8 +65,45 @@
         </nav>
         <!-- ===== MAIN SECTION ===== -->
         <main class="flex-shrink-0">
-            <div class="container">
-                
+            <div class="container mt-5">
+                <div class="row row-cols-1 row-cols-lg-2 mt-5">
+                    <div class="col-lg-4 border-end border-2">
+                        <h1 class="display-4 fw-bold lh-1 mb-1 bungee-font">The Hundred</h1>
+                        <h3 class="lh-1 mb-3">A Coding Challenge</h3>
+                        <h4 class="lead">
+                            Live life one loop at a time! A javascript coding exercise using loops. Write a program that displays the numbers from 0 to 100.
+                            Display the even numbers in <strong>BOLD</strong>.
+                        </h4>
+                        <h2 class="border-bottom border-2">Instructions</h2>
+                        <p>Enter a start and an end value. Press the button and the values will appear.</p>
+                    </div>
+                    <div class="col-lg-8">
+                        <div>
+                            <h5>Enter Values</h5>
+                            <form class="row gy-2 gx-3">
+                                <div class="col">
+                                    <input id="startValue" type="number" class="form-control" placeholder="Start Value" value=0 aria-label="Start Value">
+                                </div>
+                                <div class="col">
+                                    <div class="col">
+                                        <input id="endValue" type="number" class="form-control" placeholder="End Value" value=100 aria-label="End Value">
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button id="btnSubmit" type="button" class="btn btn-dark btn-lg">Display</button>
+                                </div>
+                            </form>
+                            <h2 class="mt-5 border-bottom border-2">Results</h2>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-sm">
+                                    <tbody id="results">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <!-- ===== FOOTER SECTION ===== -->
@@ -102,6 +142,8 @@
             integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ">
         </script>
         <script src="js/site.js"></script>
-        
+        <script>
+            document.getElementById("btnSubmit").addEventListener("click", getValues);
+        </script>
     </body>
 </html>
