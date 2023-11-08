@@ -1,2 +1,2 @@
 # The Hundred
-A javascript coding exercise using loops. Write a program that displays the numbers from 0 to 100. Display the even numbers in bold.
+A javascript coding exercise using loops. The program displays the numbers based on a range selected by the user. It then displays the list of numbers with the even numbers in bold.
